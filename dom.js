@@ -174,3 +174,59 @@ for(var j=0; j < odd.length; j++){
     odd[j].style.backgroundColor= '#f4f4f4';
     even[j].style.backgroundColor= '#ccc';
 }
+// --------------------------------------------dom2-----------------------------------------------
+// traversing the dom 
+var itemList=document.querySelector('#items');
+// parentNode 
+console.log(itemList);
+console.log(itemList.parentNode);
+itemList.parentNode.style.backgroundColor='#f4f4f4';
+console.log(itemList.parentNode.parentNode.parentNode);
+// childNodes
+console.log(itemList.childNodes);
+console.log(itemList.childNodes[1]);
+itemList.childNodes[1].style.backgroundColor='yellow';
+// itemList.childNodes[1].innerHTML='Hello 1';
+// firstChild
+console.log(itemList.firstElementChild);
+console.log(itemList.firstElementChild);
+itemList.firstElementChild.textContent= 'Hello 1';
+
+// lastChild
+// console.log(itemList.lastElementChild);
+// console.log(itemList.lastElementChild);
+// itemList.lastElementChild.textContent= 'Hello 3';
+
+// nextSibling
+// console.log(itemList.nextSibling);
+// console.log(itemList.nextElementSibling);
+
+// previousSibling
+// console.log(itemList.previousSibling);
+// console.log(itemList.previousElementSibling);
+
+// create element 
+
+// create div
+var newDiv= document.createElement('div');
+// add class
+newDiv.className='hello';
+// add id
+newDiv.id='hello1';
+// add attr
+newDiv.setAttribute('title', 'Title for Div');
+// create textNode
+var newDivText=document.createTextNode('Hello World');
+// add texte to div
+newDiv.appendChild(newDivText);
+
+var container = document.querySelector('header .container');
+var h1= document.querySelector('header h1');
+
+console.log(newDiv);
+
+console.log(container);
+console.log(h1);
+
+newDiv.style.fontSize='30px';
+container.insertBefore(newDivText, h1);
