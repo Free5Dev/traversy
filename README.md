@@ -25,3 +25,51 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+# -------------------------------------------------------------------------------
+## ---------------------------------------  ANGULAR CRASH TODO
+## ---------------------------------------Install d'abord node js, npm cli
+ng new nomProject
+cd nomProject
+ng serve --open 
+## --------------------------------------- todos component
+1. ng generate component components/todos 
+2. Dans todos.component.html 
+    <h1>Todos</h1> 
+3. Ensuite dans app.component.html appel du selecteur 
+    <app-todos></app-todos> 
+4. Dans todos.component.ts 
+    todos:Todo[];
+5. Dans le dossier app créer un dossier models et ensuite créer un fichier Todo.ts et mettre de dans:
+    export class Todo{
+        id: number;
+        title: string;
+        completed: boolean;
+    }
+6. Se retoourner dans todos.components.ts et : 
+    import { Todo } from '../../models/Todo'; 
+7. Ensuite mettre dans 
+    ngOnInit() {
+    this.todos = [
+      {
+        id:1,
+        title: "Todo One",
+        completed: false
+      },
+      {
+        id:2,
+        title: "Todo Two",
+        completed: true
+      },
+      {
+        id:3,
+        title: "Todo Three",
+        completed: false
+      },
+    ]
+  }
+8. Se deplacer dans todos.component.html
+    <ul *ngFor="let todo of todos ">
+        <li>{{ todo.title }}</li>
+    </ul>
+
