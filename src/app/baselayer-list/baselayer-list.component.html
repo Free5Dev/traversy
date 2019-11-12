@@ -1,0 +1,7 @@
+<div *ngIf="layers"><b>Base Layers List = TRUE</b>
+    <ul class="layers" opacity=1 visibility=true>
+        <div *ngFor="let layer of layers">
+            <li>{{ layer.get('title')}}</li>
+        </div>
+    </ul>
+</div>

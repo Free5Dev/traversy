@@ -1,0 +1,14 @@
+<div *ngIf="layer" class="external layerSwitcher" >
+    <div>
+            <input type="checkbox" name="visible" id="visible" [checked]="layer.get('visible')" (change)="onChecked($event)"/> Visibilité 
+            <!-- <ng-template [ngIf]=" layer.get('visible') === true" [ngIfElse]="none">
+                <span [ngStyle]="{'background-color': 'blue', 'color': 'white', 'padding': 5, 'text-transform': 'uppercase'}"> {{ layer.get('visible')}} </span>
+            </ng-template> -->
+            <!-- <ng-template #none>
+                <span [ngStyle]="{'background-color': 'red', 'color': 'white', 'padding': 5, 'text-transform': 'uppercase'}">{{ layer.get('visible')}} </span>
+            </ng-template> -->
+             {{ layer.get('title') }}
+            
+    </div>    
+</div>
+
