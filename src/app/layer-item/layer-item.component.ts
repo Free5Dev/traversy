@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MapService } from '../map.service';
 import Collection from 'ol/Collection';
+import View from 'ol/View';
 
 @Component({
   selector: 'app-layer-item',
@@ -12,7 +13,9 @@ export class LayerItemComponent implements OnInit {
   constructor(private mapService: MapService) { }
   map;
   layer;
-  @Input() layerId=''; 
+  @Input() layerId='';
+  @Input() resolutionOk=true;
+
   ngOnInit() {
     this.map = this.mapService.getMap();
     var all_layers = this.map.getLayers().getArray();
@@ -29,5 +32,12 @@ export class LayerItemComponent implements OnInit {
   {
     this.layer.set('visible',event.target.checked);
   }
-
+  viewChange(resolutionOk) {
+    if (!this.mapService.getMap()) return true;
+    var res =this.mapService.getMap().getView().getResolution();
+    // resolutionOk.getMaxResolution() <= 3527.777777777778 || resolutionOk.getMinResolution() >= 3.527777777777778
+    if (resolutionOk.getMaxResolution() <= res || resolutionOk.getMinResolution() >= res) {
+      return false;
+    } 
+  }
 }

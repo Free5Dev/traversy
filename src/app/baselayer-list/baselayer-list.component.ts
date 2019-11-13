@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MapService } from '../map.service';
 import Collection from 'ol/Collection';
 
@@ -10,6 +10,7 @@ import Collection from 'ol/Collection';
 export class BaselayerListComponent implements OnInit {
   map;
   layers;
+  layer;
   constructor(private mapService: MapService) { }
 
   ngOnInit() {
@@ -23,6 +24,25 @@ export class BaselayerListComponent implements OnInit {
     }
     this.layers = base_layers.getArray();
     return this.layers;
+  }
+  onRadio(event){
+    for(this.layer of this.layers){
+      // document.getElementById('layer').value !== this.layer.get('title ')
+      // (document.getElementById('layer').checked = true) !== this.layer.get('title ')
+      // let inputRadio = (document.querySelector('input').checked = true ) ;
+      // if(this.layer.get('title') === inputRadio){
+      //   this.layer.set('visible', event.target.checked = true) ; 
+      // }else{
+      //   this.layer.set('visible', event.target.checked = false);
+
+      // }
+
+      if(event.target.checked){
+        this.layer.set('visible', event.target.checked = true) ; 
+      }else{
+        this.layer.set('visible', event.target.checked = false) ; 
+      }
+    }
   }
 
 }
