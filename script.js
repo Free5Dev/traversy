@@ -35,8 +35,7 @@ function search(e){
       // 
       document.getElementById('zoom').addEventListener('click', function(e){
         e.preventDefault();
-        var bjct = JSON.parse(data.candidates[0].extent);
-        map.getView().fit(bjct,{padding:[20, 20, 20, 20], minResolution: 5}).getSize();
+        map.getView().fit([data.candidates[0].extent.xmin,data.candidates[0].extent.ymin,data.candidates[0].extent.xmax,data.candidates[0].extent.ymax],{padding:[20, 20, 20, 20]});
       });
       // 
     });
