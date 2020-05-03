@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax 3 | External Api </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .user{
+            display: flex;
+            background-color: antiquewhite;
+            margin-bottom: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button  id="button" class="btn btn-primary mt-2">Get Github Api</button>
+        <hr>
+        <div id="users"></div>
+    </div>
+    
+    <script>
+        document.getElementById('button').addEventListener('click', loadUsers);
+
+        function loadUsers(){
+            let xhr = new XMLHttpRequest();
+            xhr.open('Get', 'https://api.github.com/users', true);
+            xhr.onload = function(){
+                if(this.status == 200){
+                    let users = JSON.parse(this.responseText);
+                    let output = '';
+                    users.forEach((user) => {
+                        output +=`
+                            <div class='user'>
+                                <img src="${user.avatar_url}" width='60' height='60'/>
+                                <ul>
+                                    <li>ID: ${user.id}</li>
+                                    <li>LOGIN: ${user.login}</li>
+                                </ul>
+                            </div>
+                        `;
+                    });
+                    document.getElementById('users').innerHTML = output;
+
+                }else{
+                    document.getElementById('users').innerHTML = 'Not Found';
+                }
+            }
+            xhr.send();
+        }
+    </script>
+</body>
+</html>

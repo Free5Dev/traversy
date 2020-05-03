@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Ajax 4 | Php Mysql insert Ajax</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <span class="badge" id="badge"></span>
+        <form action="" id="myForm">
+            <div class="form-group">
+                <input type="text" name="name" id="name" class="form-control" placeholder="name">
+            </div>
+            <input type="submit" value="Submit" class="btn btn-primary">
+        </form>
+    </div>
+    <script>
+        //event submit form
+        document.getElementById('myForm').addEventListener('submit', loadSelect);
+        //function loadSelect
+        function loadSelect(e){
+            e.preventDefault();
+
+            let xhr = new XMLHttpRequest();
+            let name = document.getElementById('name').value;
+            let badge = document.getElementById('badge');
+            let params = "name="+name;
+            xhr.open('POST', 'insert.php', true);
+            xhr.setRequestHeader('Content-type', "application/x-www-form-urlencoded");
+            xhr.onload= function(){
+                if(this.status == 200){
+                    console.log(this.responseText);
+                    badge.classList.add('badge-primary');
+                    badge.innerHTML=this.responseText;
+                    document
+                }else{
+                    badge.classList.add('badge-danger');
+                    badge.innerHTML='Not Found';
+                }
+            }
+            xhr.send(params);
+        }
+    </script>
+</body>
+</html>
