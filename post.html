@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha512-L7MWcK7FNPcwNqnLdZq86lTHYLdQqZaz5YcAgE+5cnGmlw8JT03QB2+oxL100UeB6RlzZLUxCGSS4/++mNZdxw==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/utilities.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Post One</title>
+</head>
+<body id="home">
+    <!-- header -->
+    <header class="hero blog">
+        <div id="navbar" class="navbar top">
+            <h1 class="logo"><span class="text-primary"><i class="fas fa-book-open"></i> Edger </span>Ledger</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#cases">Cases</a></li>
+                    <li><a href="index.html#blog">Blog</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="content">
+            <h1>Blog</h1>
+            
+        </div>
+    </header>
+    <!-- main -->
+    <main>
+        <section class="post">
+            <h2>Blog Post One</h2>
+            <p class="meta"><i class="fas fa-user"></i> Posted by <strong>Jane Doe</strong> | April 23 2020</p>
+            <img src="./images/blog/blog1.jpg" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, odit hic enim iusto nulla blanditiis nobis nihil fugiat quisquam laudantium?</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni nihil architecto officiis? Repellendus culpa saepe, fugit praesentium voluptates suscipit possimus animi. Soluta nam velit blanditiis atque eum quis earum enim illo consectetur, obcaecati laborum. Officiis facilis architecto saepe molestiae quia, voluptatem aperiam velit dolor deleniti, quasi sunt possimus assumenda culpa eos in quis laboriosam. Illum dolorum sit exercitationem sunt quisquam?</p>  
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio nostrum soluta, corporis voluptates inventore harum ullam sunt illum veniam numquam unde qui et, sequi aspernatur cupiditate tempore quasi cumque labore quibusdam magnam, maxime placeat quia explicabo! Repellendus sequi, veniam ea ipsam harum eos consequatur excepturi est, placeat temporibus perferendis dolorum!</p>  
+        </section>    
+    </main>
+    <!-- footer -->
+    <footer class="footer bg-dark">
+        <div class="social">
+            <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+            <a href="#"><i class="fab fa-twitter fa-2x""></i></a>
+            <a href="#"><i class="fab fa-youtube fa-2x""></i></a>
+            <a href="#"><i class="fab fa-linkedin fa-2x""></i></a>
+        </div>
+        <p>Copyright &copy; 2020 -  EdgerLeger</p>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        let scrolled = false;
+        window.onscroll = function(){
+            if(window.pageYOffset > 100){
+                navbar.classList.remove('top');
+                if(!scrolled){
+                    navbar.style.transform = 'translateY(-70px)';
+                }
+                setTimeout(function(){
+                    scrolled = true;
+                }, 2000);
+            }else{
+                navbar.classList.add('top');
+                scrolled = true;
+            }
+        }
+    </script>
+</body>
+</html>
